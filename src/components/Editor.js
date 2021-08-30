@@ -4,6 +4,12 @@ import DrawingPanel from './DrawingPanel'
 
 import '../styles/editor.scss'
 
+const COLOR_INPUTS = [
+  "#f44336", "#e91e63", "#9c27b0", "#673ab7", "#3f51b5", "#2196f3",
+  "#03a9f4", "#00bcd4", "#009688", "#4caf50", "#8bc34a", "#cddc39",
+  "#ffeb3b", "#ffc107", "#ff9800", "#795548", "#607d8b", "#ffffff"
+]
+
 const Editor = () => {
   const [panelWidth, setPanelWidth] = useState(16)
   const [panelHeight, setPanelHeight] = useState(16)
@@ -59,7 +65,11 @@ const Editor = () => {
       <button className="button" onClick={initializeDrawingPanel}>{buttonText}</button>
 
       {hideOptions && (
-        <CirclePicker color={selectedColor} onChangeComplete={changeColor} />
+        <CirclePicker
+          color={selectedColor}
+          onChangeComplete={changeColor}
+          colors={COLOR_INPUTS}
+        />
       )}
       {hideOptions && (
         <DrawingPanel
